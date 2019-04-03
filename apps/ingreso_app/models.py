@@ -1,5 +1,5 @@
 from django.db import models
-
+from apps.cliente_app.models import Cliente
 # Create your models here.
 
 class Ingreso(models.Model):
@@ -7,3 +7,4 @@ class Ingreso(models.Model):
 	importe = models.DecimalField(max_digits=2, decimal_places=2)
 	factura = models.CharField(max_length=10)
 	tipo_producto = models.CharField(max_length=45)
+	cliente = models.ForeignKey(Cliente, null = True, blank = True, on_delete=models.CASCADE)
