@@ -3,4 +3,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index_ingreso(request):
-	return HttpResponse("Página principal de la app ingreso")
+	return render(request, 'ingreso_app/ingreso_app.html')
