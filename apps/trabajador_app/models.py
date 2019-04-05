@@ -9,5 +9,7 @@ class Trabajador(models.Model):
 	fecha_incorporacion = models.DateField()
 	activo = models.BooleanField()
 	puesto = models.CharField(max_length=15)
- 
- 
+
+	def __str__(self):
+	#Nos permite cambiar los campos de base de datos por sus etiquetas
+		return '{} {}'.format(self.nombre, self.apellido)

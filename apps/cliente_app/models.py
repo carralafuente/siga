@@ -12,4 +12,6 @@ class Cliente(models.Model):
 	estado = models.CharField(max_length=15)
 	vendedor = models.ForeignKey(Trabajador, null = True, blank = True, on_delete=models.CASCADE)
  
- 
+	def __str__(self):
+	#Nos permite cambiar los campos de base de datos por sus etiquetas
+		return '{} {}'.format(self.codigo_cliente, self.razonsocial)
