@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Fecha de Factura</td>
+			<td>Importe</td>
+			<td>Factura</td>
+			<td>Tipo de Producto</td>
+			<td>Cliente</td>
+			<td>Fecha Proxima</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for ingreso in object_list %}
+		<tr>
+			<td>{{ ingreso.fecha_factura }}</td>
+			<td>{{ ingreso.importe }}</td>
+			<td>{{ ingreso.factura }}</td>
+			<td>{{ ingreso.tipo_producto }}</td>
+			<td>{{ ingreso.cliente }}</td>
+			<td>{{ ingreso.fecha_proxima }}</td>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</tbody>
+</table>
+
+{% endblock %}			

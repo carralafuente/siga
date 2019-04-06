@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Código de cliente</td>
+			<td>Razón Social</td>
+			<td>RFC</td>
+			<td>Email</td>
+			<td>Fecha de alta</td>
+			<td>Estado</td>
+			<td>Vendedor</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for cliente in object_list %}
+		<tr>
+			<td>{{ cliente.codigo_cliente }}</td>
+			<td>{{ cliente.razonsocial }}</td>
+			<td>{{ cliente.rfc }}</td>
+			<td>{{ cliente.correo }}</td>
+			<td>{{ cliente.fecha_alta }}</td>
+			<td>{{ cliente.estado }}</td>
+			<td>{{ cliente.vendedor }}</td>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</tbody>
+</table>
+
+{% endblock %}			
+
+			<!--<td>
+				<a class ="btn btn-primary" href="{% url 'cliente:cliente_crear' cliente.id %}">Editar</a>
+				<a class ="btn btn-primary" href="{% url 'cliente:cliente_crear' cliente.id %}">Eliminar</a>
+			</td>
+			-->

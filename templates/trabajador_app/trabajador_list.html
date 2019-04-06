@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Nombre</td>
+			<td>Apellidos</td>
+			<td>Email</td>
+			<td>Fecha de incorposración</td>
+			<td>Puesto</td>
+			<td>Activo</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for trabajador in object_list %}
+		<tr>
+			<td>{{ trabajador.nombre }}</td>
+			<td>{{ trabajador.apellido }}</td>
+			<td>{{ trabajador.correo }}</td>
+			<td>{{ trabajador.fecha_incorporacion }}</td>
+			<td>{{ trabajador.puesto }}</td>
+			<td>{{ trabajador.activo }}</td>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</tbody>
+</table>
+
+{% endblock %}	
