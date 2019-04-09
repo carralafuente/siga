@@ -11,6 +11,7 @@
 			<td>Fecha de incorposración</td>
 			<td>Puesto</td>
 			<td>Activo</td>
+			<td>Acciones</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,12 @@
 			<td>{{ trabajador.fecha_incorporacion }}</td>
 			<td>{{ trabajador.puesto }}</td>
 			<td>{{ trabajador.activo }}</td>
+			<td>
+				{% if user.is_authenticated %}
+				<a class ="btn btn-primary" href="{% url 'trabajador_editar' pk=trabajador.pk %}">Editar</a>
+				<a class ="btn btn-danger" href="{% url 'trabajador_eliminar' pk=trabajador.pk %}">Eliminar</a>
+				{% endif %}
+			</td>
 		</tr>
 		{% endfor %}
 		{% endif %}

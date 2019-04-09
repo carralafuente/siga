@@ -11,6 +11,7 @@
 			<td>Tipo de Producto</td>
 			<td>Cliente</td>
 			<td>Fecha Proxima</td>
+			<td>Acciones</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,12 @@
 			<td>{{ ingreso.tipo_producto }}</td>
 			<td>{{ ingreso.cliente }}</td>
 			<td>{{ ingreso.fecha_proxima }}</td>
+			<td>
+				{% if user.is_authenticated %}
+				<a class ="btn btn-primary" href="{% url 'ingreso_editar' pk=ingreso.pk %}">Editar</a>
+				<a class ="btn btn-danger" href="{% url 'ingreso_eliminar' pk=ingreso.pk %}">Eliminar</a>
+				{% endif %}
+			</td>
 		</tr>
 		{% endfor %}
 		{% endif %}
