@@ -2,45 +2,47 @@
 
 
 {% block content %}
-
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<td>Código de cliente</td>
-			<td>Razón Social</td>
-			<td>RFC</td>
-			<td>Email</td>
-			<td>Fecha de alta</td>
-			<td>Estado</td>
-			<td>Vendedor</td>
-			<td>Acciones</td>
-		</tr>
-	</thead>
-	<tbody>
-		{% if object_list %}
-		{% for cliente in object_list %}
-		<tr>
-			<td>{{ cliente.codigo_cliente }}</td>
-			<td>{{ cliente.razonsocial }}</td>
-			<td>{{ cliente.rfc }}</td>
-			<td>{{ cliente.correo }}</td>
-			<td>{{ cliente.fecha_alta }}</td>
-			<td>{{ cliente.estado }}</td>
-			<td>{{ cliente.vendedor }}</td>
-			<td>
+<div class="table-responsive">
+	<table class="table table-responsive table-hover table-condensed">
+		<thead>
+			<tr>
+				<td>Código de cliente</td>
+				<td>Razón Social</td>
+				<td>RFC</td>
+				<td>Email</td>
+				<td>Fecha de alta</td>
+				<td>Estado</td>
+				<td>Vendedor</td>
 				{% if user.is_authenticated %}
-				<a class ="btn btn-primary" href="{% url 'cliente_editar' pk=cliente.pk %}">Editar</a>
-				<a class ="btn btn-danger" href="{% url 'cliente_eliminar' pk=cliente.pk %}">Eliminar</a>
+				<td>Acciones</td>
 				{% endif %}
-			</td>
-		</tr>
-		{% endfor %}
-		{% else %}
-			<h2>No hay registros</h2>
-		{% endif %}
-	</tbody>
-</table>
-
+			</tr>
+		</thead>
+		<tbody>
+			{% if object_list %}
+			{% for cliente in object_list %}
+			<tr>
+				<td>{{ cliente.codigo_cliente }}</td>
+				<td>{{ cliente.razonsocial }}</td>
+				<td>{{ cliente.rfc }}</td>
+				<td>{{ cliente.correo }}</td>
+				<td>{{ cliente.fecha_alta }}</td>
+				<td>{{ cliente.estado }}</td>
+				<td>{{ cliente.vendedor }}</td>
+				{% if user.is_authenticated %}
+				<td>
+					<a class ="btn btn-primary btn-block" href="{% url 'cliente_editar' pk=cliente.pk %}">Editar</a>
+					<a class ="btn btn-danger btn-block" href="{% url 'cliente_eliminar' pk=cliente.pk %}">Eliminar</a>
+				</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			{% else %}
+				<h2>No hay registros</h2>
+			{% endif %}
+		</tbody>
+	</table>
+</div>
 {% endblock %}			
 
 			<!--
