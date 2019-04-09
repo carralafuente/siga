@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid">	
+	<form method="POST">
+		{% csrf_token %}
+		<div class="row"></div>
+			<div class="col-m-6 col-md-offset-1">
+				<div class="form-group">
+					<label>Nombre de usuario</label>
+					<input class="form-control" type="text" name="username">
+				</div>
+			</div>
+			<div class="col-m-6 col-md-offset-1">
+				<div class="form-group">
+					<label>Contraseña</label>
+					<input class="form-control" type="password" name="password">
+				</div>
+			</div>
+			<div class="col-m-6 col-md-offset-1">
+				<div class="form-group">
+					<a href="a">Olvidé mi contraseña</a>
+					<input class="btn btn-primary" type="submit" value="Ingresar">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
