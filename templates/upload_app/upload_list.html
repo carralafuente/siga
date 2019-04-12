@@ -16,7 +16,9 @@
 			<td>Descuentos</td>
 			<td>I.V.A.</td>
 			<td>Total</td>
+			{% if user.is_authenticated %}
 			<td>Acciones</td>
+			{% endif %}
 		</tr>
 	</thead>
 	<tbody>
@@ -34,16 +36,16 @@
 			<td>{{ upload.descuentos }}</td>
 			<td>{{ upload.impuestos }}</td>
 			<td>{{ upload.total }}</td>
+			{% if user.is_authenticated %}
 			<td>
-				{% if user.is_authenticated %}
-				<a class ="btn btn-primary" href="{% url 'registro_editar' upload.id %}">Editar</a>
-				<a class ="btn btn-danger" href="{% url 'registro_eliminar' upload.id %}">Eliminar</a>
-				{% endif %}
+				<a class ="btn btn-primary btn-block" href="{% url 'registro_editar' upload.id %}">Editar</a>
+				<a class ="btn btn-danger btn-block" href="{% url 'registro_eliminar' upload.id %}">Eliminar</a>
 			</td>
+			{% endif %}
 		</tr>
 		{% endfor %}
 		{% else %}
-		<h1>No existen registros</h1>
+		<a class="btn btn-primary" href="{% url 'fichero_listar' %}">Refrescar la lista</a>
 		{% endif %}
 	</tbody>
 </table>

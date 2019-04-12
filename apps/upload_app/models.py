@@ -5,7 +5,7 @@ from django.db import models
 class Upload(models.Model):
 	fecha = models.CharField(max_length=15)
 	serie = models.CharField(max_length=1)
-	folio = models.CharField(max_length=15)
+	folio = models.IntegerField()
 	cliente = models.CharField(max_length=15)
 	razonsocial = models.CharField(max_length=75)
 	rfc = models.CharField(max_length=15)
