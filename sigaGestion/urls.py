@@ -24,5 +24,6 @@ urlpatterns = [
     path('trabajador/',include ('apps.trabajador_app.urls')),
     path('usuarios/',include ('apps.usuarios_app.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('upload/', include('apps.upload_app.urls')),
 ]
 

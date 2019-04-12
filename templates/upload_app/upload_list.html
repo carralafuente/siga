@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Fecha</td>
+			<td>Serie</td>
+			<td>Folio</td>
+			<td>Código de cliente</td>
+			<td>Razón social</td>
+			<td>R.F.C.</td>
+			<td>Status</td>
+			<td>Importe neto</td>
+			<td>Descuentos</td>
+			<td>I.V.A.</td>
+			<td>Total</td>
+			<td>Acciones</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if Uploads %}
+		{% for upload in Uploads %}
+		<tr>
+			<td>{{ upload.fecha }}</td>
+			<td>{{ upload.serie }}</td>
+			<td>{{ upload.folio }}</td>
+			<td>{{ upload.cliente }}</td>
+			<td>{{ upload.razonsocial }}</td>
+			<td>{{ upload.rfc }}</td>
+			<td>{{ upload.estado }}</td>
+			<td>{{ upload.neto }}</td>
+			<td>{{ upload.descuentos }}</td>
+			<td>{{ upload.impuestos }}</td>
+			<td>{{ upload.total }}</td>
+			<td>
+				{% if user.is_authenticated %}
+				<a class ="btn btn-primary" href="{% url 'registro_editar' upload.id %}">Editar</a>
+				<a class ="btn btn-danger" href="{% url 'registro_eliminar' upload.id %}">Eliminar</a>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<h1>No existen registros</h1>
+		{% endif %}
+	</tbody>
+</table>
+
+{% endblock %}	

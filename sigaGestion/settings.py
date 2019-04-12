@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'apps.ingreso_app',
     'apps.trabajador_app',
     'apps.usuarios_app',
+    'apps.upload_app',
+    'import_export',
+
 ]
 
 MIDDLEWARE = [
@@ -118,3 +121,5 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
 LOGIN_REDIRECT_URL = reverse_lazy('index_cliente')
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
